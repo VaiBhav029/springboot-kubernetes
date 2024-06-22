@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: springboot-mysql-app
-          image: springboot-mysql-app:1.0
+          image: vaibhavshetty07/crud-kube:0.0.1-SNAPSHOT
           ports:
             - containerPort: 8080
           env:
