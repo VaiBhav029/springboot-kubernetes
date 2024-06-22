@@ -44,13 +44,13 @@ jobs:
       uses: google-github-actions/setup-gcloud@v1
       with:
         project_id: ${{ env.PROJECT_ID }}
-        service_account_key: ${{ secrets.GKE_SA_KEY }}
+        service_account_key: ${{ secrets.GKA_SA_KEY }}
 
     - name: Authenticate to Google Cloud
       env:
-        GKE_SA_KEY: ${{ secrets.GKE_SA_KEY }}
+        GKA_SA_KEY: ${{ secrets.GKA_SA_KEY }}
       run: |
-        echo $GKE_SA_KEY | base64 --decode > /tmp/account.json
+        echo $GKA_SA_KEY | base64 --decode > /tmp/account.json
         gcloud auth activate-service-account --key-file=/tmp/account.json
 
     - name: Configure kubectl
