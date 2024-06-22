@@ -1,0 +1,29 @@
+# springboot-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-mysql-app-dep
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: springboot-mysql-app
+  template:
+    metadata:
+      labels:
+        app: springboot-mysql-app
+    spec:
+      containers:
+        - name: springboot-mysql-app
+          image: springboot-mysql-app:1.0
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:mysql://mysql:3306/vaibhav
+            - name: SPRING_DATASOURCE_USERNAME
+              value: root
+            - name: SPRING_DATASOURCE_PASSWORD
+              value: root
+
+
